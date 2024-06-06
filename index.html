@@ -14,14 +14,16 @@
         }
 
         function getRandomSubject() {
-            const subjects = ['微积分', '大英', '大物', '概统', '常微分', '形策', '所有科目','C程/Python'];
+            const subjects = ['微积分', '大英', '大物', '概统', '常微分', '形策', '所有科目'];
             return subjects[Math.floor(Math.random() * subjects.length)];
         }
 
         function displayRandomNumber() {
-            if (clickCount >= 15) {
-                const btn = document.getElementById('btn');
-                btn.hidden = true;
+            if (clickCount >= 30) {
+                const btnImg = document.getElementById('btnImg');
+                btnImg.hidden = true;
+                const clickText = document.getElementById('clickText');
+                clickText.hidden = true;
                 const randomNumberElement = document.getElementById('randomNumber');
                 randomNumberElement.innerText = "别做白日梦了，赶紧复习去吧";
                 randomNumberElement.style.fontSize = '2em'; // 设置大号字体
@@ -35,8 +37,10 @@
         }
 
         function show() {
-            const btn = document.getElementById('btn');
-            btn.hidden = false;
+            const btnImg = document.getElementById('btnImg');
+            btnImg.hidden = false;
+            const clickText = document.getElementById('clickText');
+            clickText.hidden = false;
         }
 
         window.oncontextmenu = () => false;
@@ -76,6 +80,14 @@
             padding: 10px 0;
             background-color: #f8f9fa;
         }
+
+        #btnImg {
+            cursor: pointer;
+        }
+
+        #clickText {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -83,13 +95,12 @@
     <div id="main">
         <div id="div" onmouseleave="show()">
             <div id="randomNumber" class="mb-3"></div>
-            <button id="btn" onclick="displayRandomNumber()" type="button" class="btn btn-primary">
-                click me
-            </button>
+            <img id="btnImg" src="1.gif" onclick="displayRandomNumber()" alt="Click me" class="img-fluid">
+            <div id="clickText">Click here</div>
         </div>
     </div>
     <div id="footer">
-        By_Slowist
+        IAI专属 By_Slowist
     </div>
 </body>
 
